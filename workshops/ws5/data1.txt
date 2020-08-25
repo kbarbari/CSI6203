@@ -1,0 +1,9 @@
+Data for the report was compiled in March and April 2020 by an independent research company.
+Key survey findings from respondents were as follows:
+94% said attack volume has increased in the last 12 months, the survey found.
+96% said their business has suffered a security breach in the last 12 months.
+The average organization said they experienced 2 breaches during that time, the survey found.
+88% said attacks have become more sophisticated.
+96% said they plan to increase cyber defence spending in the coming year.
+OS vulnerabilities and third-party application attacks were the leading cause of breaches
+Companies said they are using an average of 7 different security technologies.

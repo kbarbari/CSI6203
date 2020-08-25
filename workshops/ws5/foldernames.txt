@@ -1,0 +1,15 @@
+humanresources
+businesssolutions
+accounting
+maintenance
+groundservices
+motorpool
+catering
+managementteam
+security
+publicrelations
+marketingteam
+foreignaffairs
+socialclub
+procurement
+localgovernment
