@@ -127,7 +127,7 @@ get_range_images () {
     do
         read -p "Image number at end of range (DSC0####): " end_number
         if [[ $end_number =~ ^[0-9]{4}$ ]]; then
-            if [[ 10#$end_number -ge 10#$start_number ]]; then
+            if [[ $end_number -ge $start_number ]]; then
                 if grep -xq "$end_number" ./$resource_folder/$image_names ; then
                     break
                 else
@@ -167,7 +167,7 @@ get_random_images() {
     do
         read -p "Image number at end of range (DSC0####): " end_number
         if [[ $end_number =~ ^[0-9]{4}$ ]]; then
-            if [[ 10#$end_number -ge 10#$start_number ]]; then
+            if [[ $end_number -ge $start_number ]]; then
                 if grep -xq "$end_number" ./$resource_folder/$image_names ; then
                     break
                 else
@@ -202,11 +202,11 @@ get_random_images() {
     echo "No images to download"
         break
     else
-        random_numbers=($(shuf -i 0-${#images_to_download[@]} -n $random_number))
+        random_numbers=($(shuf -i $0-${#images_to_download[@]} -n $random_number))
         declare -a random_images_to_download
         for i in ${random_numbers[@]}
         do
-            random_images_to_download+=(${images_to_download[$i]})
+            random_images_to_download=(${images_to_download[$i]})
         done
         echo "Processing..."
         download_image ${random_images_to_download[@]}
@@ -287,7 +287,6 @@ do
                 rm -f ./$folder_name/$file
             done
         fi
-        echo "All files cleaned"
     elif [[ $option =~ ^6$ ]]; then
         clear
         echo 'Now exiting... Thanks for using my program!'
