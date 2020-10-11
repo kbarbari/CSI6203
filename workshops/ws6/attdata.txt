@@ -1,0 +1,17 @@
+The ransomware package is primarily used to target large companies and organisations with an average of 300 employees
+The city paid a $600,000 ransom in June 2019 to recover files following a ransomware attack
+Multiple healthcare providers were hit with ransomware in early 2019 and paid the ransom to retrieve files.
+One paid $75,000 to recover its encrypted files.
+The city was hit by five cyberattacks in the span of three weeks in late 2019, including a Christmas day attack.
+Ransomware downtime costs organisations more than $64,000 on average.
+Ransomware is costing businesses more than $75,000,000 per year
+Enterprise ransomware infections were up 12 percent in 2018.
+We also found enterprises accounted for 81 percent of all ransomware attacks in 2018
+A tenth of all businesses reporting stated their ransom demand was $5,000 or more
+Nearly 40 percent of victims paid the ransom.
+One business was even asked to pay an exact $9,999 ransom
+We have no idea why they didn't just ask for $10,000 flat.
+Over half of all survey respondentssaid they’d be willing to pay the ransom to regain access to digital family photos.
+Another study noted that a quarter of businesses would be willing to pay between $20,000 and $50,000 to regain access to encrypted data.
+The city made an undisclosed ransomware payment in May
+The company lost access to 22,000 computers in 40 countries, reducing its workforce to using pen and paper until the ransomware infection was resolved.

@@ -1,0 +1,36 @@
+23,TCP,TelnetxTCP,24.100.51.198
+23,TCP,TelnetxTCP,24.100.51.199
+23,TCP,TelnetxTCP,24.100.51.200
+6660,IRC,Unreal IRCD,58.84.159.183
+6660,IRC,Unreal IRCD,58.84.159.184
+1080,TCP,SOCKS Proxy,ns3.cymru.com
+1080,TCP,SOCKS Proxy,ns3.cymru.com
+53,TCP/UDP,DNS,24.100.51.198
+53,TCP/UDP,DNS,24.100.51.199
+53,TCP/UDP,DNS,24.100.51.200
+53,TCP/UDP,DNS,24.100.51.201
+53,TCP/UDP,DNS,24.100.51.202
+53,TCP/UDP,DNS,24.100.51.203
+53,TCP/UDP,DNS,24.100.51.204
+31337,TCP/UDP,icmp_pipe,dev.null.dk
+31337,TCP/UDP,icmp_pipe,dev.null.dk
+1080,TCP,SOCKS Proxy,ns3.cymru.com
+53,TCP/UDP,DNS,rbl.snark.net
+53,TCP/UDP,DNS,rbl.snark.net
+31337,TCP/UDP,icmp_pipe,dev.null.dk
+31337,TCP/UDP,icmp_pipe,dev.null.dk
+31337,TCP/UDP,icmp_pipe,dev.null.dk
+22,SSH,Unknown,dnsbl.kempt.net
+22,SSH,Unknown,dnsbl.kempt.net
+22,SSH,Unknown,dnsbl.kempt.net
+22,SSH,Unknown,dnsbl.kempt.net
+22,SSH,Unknown,dnsbl.kempt.net
+6660,IRC,Unreal IRCD,58.84.159.183
+161,UDP,SNMP_x,rbl.snark.net
+23,TCP,TelnetxTCP,rsbl.aupads.org
+23,TCP,TelnetxTCP,rsbl.aupads.org
+23,TCP,TelnetxTCP,rsbl.aupads.org
+23,TCP,TelnetxTCP,rsbl.aupads.org
+22,SSH,Unknown,dnsbl.kempt.net
+22,SSH,Unknown,dnsbl.kempt.net
+22,SSH,Unknown,dnsbl.kempt.net

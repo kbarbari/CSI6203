@@ -7,7 +7,7 @@
 resource_folder=getimages_resources
 html_file=raw_html.txt
 image_names=filenames.txt
-has_image_folder=0
+program_files_exist=0
 new_image_folder=0
 new_resource_folder=0
 declare -a files_to_delete
@@ -39,13 +39,11 @@ get_folders() {
         else
             if [[ -d "./$folder_name" ]]; then
                 echo "All photos will now be saved to $folder_name"
-                has_image_folder=1
                 break
             else
                 mkdir $folder_name
                 echo "Folder $folder_name created.  All photos will be saved there."  
                 new_image_folder=1
-                has_image_folder=1
                 break
             fi
         fi
@@ -233,17 +231,27 @@ get_all_images() {
     download_image ${images_to_download[@]}
 }
 
+# function: create files used by program
+get_resource_files() {
+    echo -e "Preparing program...\n"
+
+    # get raw html of gallery
+    curl -s https://www.ecu.edu.au/service-centres/MACSC/gallery/gallery.php?folder=ml-2018-campus > ./$resource_folder/$html_file
+
+    # get list of iamges from raw html
+    cat ./$resource_folder/$html_file | grep -Eo '(https|http)://secure.ecu.edu.au/[^"]+\.jpg' | sed 's/.*\///' | sed 's/\.jpg//' | sed 's/DSC0//' > ./$resource_folder/$image_names
+    program_files_exist=1
+}
+
+
 #### MAIN PROGRAM ####
 
 # setup folders that program uses
 get_folders
-echo -e "Preparing program...\n"
 
-# get raw html of gallery
-curl -s https://www.ecu.edu.au/service-centres/MACSC/gallery/gallery.php?folder=ml-2018-campus > ./$resource_folder/$html_file
+#  setup files that program uses
+get_resource_files
 
-# get list of iamges from raw html
-cat ./$resource_folder/$html_file | grep -Eo '(https|http)://secure.ecu.edu.au/[^"]+\.jpg' | sed 's/.*\///' | sed 's/\.jpg//' | sed 's/DSC0//' > ./$resource_folder/$image_names
 clear
 
 # present user the main menu
@@ -262,43 +270,48 @@ do
     # single image 
     if [[ $option =~ ^1$ ]]; then
         clear
-        # prompt user for folder if they don't have somewhere to save, otherwise run single image function
-        if [[ $has_image_folder -eq 0 ]]; then
+        # set up files and folders after clearing all files
+        if [[ $program_files_exist -eq 0 ]]; then
             get_folders
-        else
-            get_single_image
+            get_resource_files
         fi
+        # run single image function
+        get_single_image
     
     # range of images
     elif [[ $option =~ ^2$ ]]; then
         clear
-        # prompt user for folder if they don't have somewhere to save, otherwise run range of image function
-        if [[ $has_image_folder -eq 0 ]]; then
+        # set up files and folders after clearing all files
+        if [[ $program_files_exist -eq 0 ]]; then
             get_folders
-        else
-            get_images
+            get_resource_files
         fi
+        # run range of image function
+        get_images
 
     # random images from range of images
     elif [[ $option =~ ^3$ ]]; then
         clear
-        # prompt user for folder if they don't have somewhere to save, otherwise run range of image function (with random argument)
-        if [[ $has_image_folder -eq 0 ]]; then
+        # set up files and folders after clearing all files
+        if [[ $program_files_exist -eq 0 ]]; then
             get_folders
-        else
-            rand='rand'
-            get_images $rand
+            get_resource_files
         fi
+        # run range of image function with random number
+        rand='rand'
+        get_images $rand
+
 
     # all images
     elif [[ $option =~ ^4$ ]]; then
         clear
-        # prompt user for folder if they don't have somewhere to save, otherwise run all images function
-        if [[ $has_image_folder -eq 0 ]]; then
+        # set up files and folders after clearing all files
+        if [[ $program_files_exist -eq 0 ]]; then
             get_folders
-        else
-            get_all_images
+            get_resource_files
         fi
+        # run all image function
+        get_all_images
 
     # clean up files
     elif [[ $option =~ ^5$ ]]; then
@@ -322,6 +335,7 @@ do
                 rm -f ./$folder_name/$file
             done
         fi
+        program_files_exist=0
         echo "All files cleaned"
     
     # exit program
